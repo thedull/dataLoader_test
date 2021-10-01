@@ -1,0 +1,1 @@
+{"query":"query Query {\n  books {\n    id\n    author {\n      name\n      books {\n        title\n      }\n    }\n  }\n}\n","variables":{},"operationName":"Query"}

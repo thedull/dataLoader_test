@@ -1,0 +1,1 @@
+{"query":"query ($libraryId: ID!) {\n  library(id: $libraryId) {\n    id\n    description\n    books {\n      title\n      author {\n        name\n      }\n    }\n  }\n}\n","variables":{"libraryId":1,"bookId":1}}

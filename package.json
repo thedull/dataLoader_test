@@ -1,9 +1,10 @@
 {
-  "name": "dataLoader01",
-  "version": "1.0.0",
+  "name": "dataloader01",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
+    "start": "nsolid app/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,7 +14,13 @@
     "node": "14.18.0"
   },
   "dependencies": {
+    "apollo-server-express": "^3.3.0",
     "dataloader": "^2.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "graphql": "^15.6.0",
+    "graphql-tag": "^2.12.5",
+    "knex": "^0.95.11",
+    "nodemon": "^2.0.13",
+    "sqlite3": "^5.0.2"
   }
 }
