@@ -1,0 +1,31 @@
+version: "3"
+services:
+  console:
+    image: nodesource/nsolid-console
+    container_name: nsolid.console
+    ports:
+      - 9001:9001
+      - 9002:9002
+      - 9003:9003
+      - 6743:6753
+    environment:
+      - NODE_ENV=development
+      - NSOLID_CONSOLE_INFLUXDB_CONNECT_ATTEMPT_LIMIT=1000
+    volumes:
+      - $PWD/console:/var/lib/nsolid/console
+    networks:
+      - nsolid
+  app:
+    build: .
+    container_name: nsolid.dataloader_test
+    ports:
+      - 3001:3001
+    environment:
+      - NSOLID_APPNAME=dataLoader_test
+      - NSOLID_COMMAND=console:9001
+      - NSOLID_DATA=console:9002
+      - NSOLID_BULK=console:9003
+    networks:
+      - nsolid
+networks:
+  nsolid:
