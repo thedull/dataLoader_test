@@ -1,10 +1,11 @@
 const dataLoader = require('dataloader');
-const data = require('./rmData').results;
+const axios = require('axios');
 
 const batchGetCharactersByEpisode = async (episodeList) => {
+    const data = await axios.get('http://localhost:3000/data');
     const characterList = episodeList.map(epId => ({
         epId,
-        characters: data.filter(char => char.episode.includes(`https://rickandmortyapi.com/api/episode/${epId}`)).map(char => char.name)
+        characters: data.data.filter(char => char.episode.includes(`https://rickandmortyapi.com/api/episode/${epId}`)).map(char => char.name)
     }));
     //console.log('Fired once');
     return characterList;

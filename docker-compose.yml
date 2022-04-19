@@ -8,9 +8,11 @@ services:
       - 9002:9002
       - 9003:9003
       - 6743:6753
+      - 10002:10002
     environment:
       - NODE_ENV=development
       - NSOLID_CONSOLE_INFLUXDB_CONNECT_ATTEMPT_LIMIT=1000
+      - NSOLID_CONSOLE_DATA_RETENTION_DAYS=23
     volumes:
       - $PWD/console:/var/lib/nsolid/console
     networks:
